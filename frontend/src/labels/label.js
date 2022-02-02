@@ -6,12 +6,14 @@ export function Label(props) {
         cursor: props.onClick ? "pointer" : ""
     }
 
+    const onClickFunction = props.onClick ? props.onClick: (label) => { }
+
     return (
         <span
             key={props.label._id}
             className="label"
             style={style}
-            onClick={props.onClick}
+            onClick={() => onClickFunction(props.label)}
             >
             {props.label.name}
         </span>

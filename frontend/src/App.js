@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react'
 import { Label } from './labels/label';
+import { LabelList } from './labels/label-list';
 
 function App() {
   const [newItem, setNewItem] = useState("")
@@ -63,35 +64,21 @@ function App() {
           Add Todo List Item
         </button>
 
-        <div className="label-container">
-          {
-            newItemLabels.map(label =>
-              <Label
-                label={label}
-                onClick={() => {
-                  setLabels([label, ...labels])
-                  setNewItemLabels(newItemLabels.filter(l => l !== label))
-                }}>
-              </Label>
-            )
-          }
-        </div>
+        <LabelList
+          labels={newItemLabels}
+          onClick={(label) => {
+            setLabels([label, ...labels])
+            setNewItemLabels(newItemLabels.filter(l => l !== label))
+          }} />
 
         <div>
           <label>Available Labels:</label>
-          <div className="label-container">
-            {
-              labels.map(label =>
-                <Label
-                  label={label}
-                  onClick={() => {
-                    setNewItemLabels([label, ...newItemLabels])
-                    setLabels(labels.filter(l => l !== label))
-                  }}>
-                </Label>
-              )
-            }
-          </div>
+          <LabelList
+            labels={labels}
+            onClick={(label) => {
+              setNewItemLabels([label, ...newItemLabels])
+              setLabels(labels.filter(l => l !== label))
+            }} />
         </div>
       </div>
     </div>
