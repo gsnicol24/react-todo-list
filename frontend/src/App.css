@@ -1,0 +1,33 @@
+.App {
+  margin: 20px;
+  border: 1px solid black;
+  width:500px;
+}
+
+.todo-list-items {
+  padding:20px;
+}
+
+.add-new-item-container {
+  margin-top:20px;
+  padding:20px;
+  border-top: 1px solid black;
+}
+
+.label-container {
+  display: flex;
+}
+
+.label {
+  margin-left: 2px;
+  padding: 3px 20px;
+  border-radius: 15px;
+}
+
+.clickable-label {
+  cursor: pointer
+}
+
+.todolist-item {
+  margin-bottom: 10px;
+}
