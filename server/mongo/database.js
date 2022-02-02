@@ -1,7 +1,11 @@
 let mongoose = require('mongoose');
 
+const cluster = 'cluster0.uo8vs';
+const username = 'gnic';
 const password = 'bYyA3eNXVT38YaUTJTg';
-const mongoUri = `mongodb+srv://gnic:${password}@cluster0.uo8vs.mongodb.net/todolist?retryWrites=true&w=majority`
+const db = 'todolist'
+
+const mongoUri = `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${db}?retryWrites=true&w=majority`
 
 class Database {
   constructor() {
