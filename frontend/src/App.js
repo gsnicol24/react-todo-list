@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react'
+import { Label } from './labels/label';
 
 function App() {
   const [newItem, setNewItem] = useState("")
@@ -48,11 +49,7 @@ function App() {
               <input type="checkbox"></input>
               {todoListItem.title}
               {
-                todoListItem.labels.map(label =>
-                  <span key={label._id} className="label" style={ { 'backgroundColor': label.color }}>
-                    {label.name}
-                  </span>
-                )
+                todoListItem.labels.map(label => <Label label={label}></Label>)
               }
             </div>
           )
@@ -67,37 +64,31 @@ function App() {
         </button>
 
         <div className="label-container">
-            {
-              newItemLabels.map(label =>
-                <div
-                  key={label._id}
-                  className="label clickable-label"
-                  style={ { 'backgroundColor': label.color }}
-                  onClick={() => {
-                    setLabels([label, ...labels])
-                    setNewItemLabels(newItemLabels.filter(l => l !== label))
-                  }}>
-                  {label.name}
-                </div>
-              )
-            }
-          </div>
+          {
+            newItemLabels.map(label =>
+              <Label
+                label={label}
+                onClick={() => {
+                  setLabels([label, ...labels])
+                  setNewItemLabels(newItemLabels.filter(l => l !== label))
+                }}>
+              </Label>
+            )
+          }
+        </div>
 
         <div>
           <label>Available Labels:</label>
           <div className="label-container">
             {
               labels.map(label =>
-                <div
-                  key={label._id}
-                  className="label clickable-label"
-                  style={ { 'backgroundColor': label.color }}
+                <Label
+                  label={label}
                   onClick={() => {
                     setNewItemLabels([label, ...newItemLabels])
                     setLabels(labels.filter(l => l !== label))
                   }}>
-                  {label.name}
-                </div>
+                </Label>
               )
             }
           </div>
