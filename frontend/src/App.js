@@ -49,9 +49,7 @@ function App() {
             <div key={todoListItem._id} className="todolist-item">
               <input type="checkbox"></input>
               {todoListItem.title}
-              {
-                todoListItem.labels.map(label => <Label label={label}></Label>)
-              }
+              <LabelList labels={todoListItem.labels} max="2"/>
             </div>
           )
         }
