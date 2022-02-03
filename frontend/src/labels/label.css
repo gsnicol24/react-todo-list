@@ -1,5 +1,7 @@
 .label {
+    margin-top:5px;
     margin-left: 2px;
     padding: 3px 20px;
     border-radius: 15px;
+    display: inline-block;
 }

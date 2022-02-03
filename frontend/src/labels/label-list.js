@@ -1,10 +1,11 @@
 import { Label } from './label';
+import './label-list.css'
 
 export function LabelList(props) {
     const max = props.max;
     const labels = props.labels ?? []
     return (
-        <div>
+        <div className="label-list">
             {
                 labels.map(
                     (label, idx) => {
