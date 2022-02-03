@@ -1,8 +1,8 @@
 let mongoose = require('mongoose');
 
-const cluster = 'cluster0.uo8vs';
-const username = 'gnic';
-const password = 'bYyA3eNXVT38YaUTJTg';
+const cluster = '';
+const username = '';
+const password = '';
 const db = 'todolist'
 
 const mongoUri = `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${db}?retryWrites=true&w=majority`
