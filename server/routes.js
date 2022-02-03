@@ -30,8 +30,10 @@ app.post("/todos", async (request, response) => {
 
     try {
         await todo.save();
+        await todo.populate('labels')
         response.send(todo);
     } catch (error) {
+        console.log(error)
         response.status(500).send(error);
     }
 });
